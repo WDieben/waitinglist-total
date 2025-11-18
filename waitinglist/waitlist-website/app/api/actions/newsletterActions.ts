@@ -6,12 +6,8 @@ export interface WaitlistSubscribeRequest {
 export interface WaitlistSubscribeResponse {
   success: boolean
   message: string
+  is_existing?: boolean
 }
-
-const PRODUCT_NAME =
-  process.env.NEXT_PUBLIC_PRODUCT_NAME ||
-  process.env.PRODUCT_NAME ||
-  'WaitingList'
 
 export const subscribeToWaitlist = async (
   payload: WaitlistSubscribeRequest,
@@ -22,10 +18,7 @@ export const subscribeToWaitlist = async (
       'Content-Type': 'application/json',
     },
     cache: 'no-store',
-    body: JSON.stringify({
-      ...payload,
-      product_name: PRODUCT_NAME,
-    }),
+    body: JSON.stringify(payload),
   })
 
   if (!response.ok) {
@@ -50,4 +43,3 @@ export const subscribeToWaitlist = async (
     return { success: true, message: text }
   }
 }
-

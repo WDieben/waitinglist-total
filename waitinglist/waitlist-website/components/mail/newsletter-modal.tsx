@@ -53,7 +53,7 @@ export function NewsletterModal({ children }: NewsletterModalProps) {
         setIsOpen(false)
         setIsSubmitted(false)
         router.push("/")
-      }, 500)
+      }, 2000)
     },
   })
 
@@ -128,13 +128,27 @@ export function NewsletterModal({ children }: NewsletterModalProps) {
               </form>
             ) : (
               <div className="text-center py-6">
-                <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-medium text-white mb-2">Thank you for signing up!</h3>
-                <p className="text-sm text-white/60">We're excited to have you on our waitlist. We'll keep you updated on our launch and special offers!</p>
+                {mutation.data?.is_existing ? (
+                  <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                ) : (
+                  <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                )}
+                <h3 className="text-lg font-medium text-white mb-2">
+                  {mutation.data?.is_existing ? "User already signed up!" : "Thank you for signing up!"}
+                </h3>
+                <p className="text-sm text-white/60">
+                  {mutation.data?.is_existing
+                    ? "You are already on our waitlist. We'll keep you updated!"
+                    : "We're excited to have you on our waitlist. We'll keep you updated on our launch and special offers!"}
+                </p>
               </div>
             )}
           </CardContent>

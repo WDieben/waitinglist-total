@@ -23,7 +23,8 @@ class ResendServiceError(Exception):
         self.status_code = status_code
 
 
-def _build_email_body(name: str, product_name: str) -> tuple[str, str]:
+def _build_email_body(name: str) -> tuple[str, str]:
+    product_name = DEFAULT_PRODUCT_NAME
     html_body = f"""
     <html>
       <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #111;">
@@ -57,23 +58,23 @@ def _build_email_body(name: str, product_name: str) -> tuple[str, str]:
     return html_body, text_body
 
 
-async def send_waitlist_confirmation_email(name: str, email: str, product_name: str | None = None) -> Dict[str, Any]:
+async def send_waitlist_confirmation_email(name: str, email: str) -> Dict[str, Any]:
     if not RESEND_API_KEY:
         raise ResendServiceError("Email service is niet geconfigureerd.")
 
     safe_name = name.strip() or "there"
-    product = (product_name or DEFAULT_PRODUCT_NAME).strip() or DEFAULT_PRODUCT_NAME
-    html_body, text_body = _build_email_body(safe_name, product)
+    html_body, text_body = _build_email_body(safe_name)
+    product_name = DEFAULT_PRODUCT_NAME
 
     params = {
         "from": RESEND_FROM_EMAIL,
         "to": [email],
-        "subject": f"Welcome to the {product} waitlist!",
+        "subject": f"Welcome to the {product_name} waitlist!",
         "html": html_body,
         "text": text_body,
     }
 
-    logger.info("Sending waitlist confirmation email to %s for %s", email, product)
+    logger.info("Sending waitlist confirmation email to %s for %s", email, product_name)
 
     try:
         response = await asyncio.to_thread(resend.Emails.send, params)
@@ -86,4 +87,3 @@ async def send_waitlist_confirmation_email(name: str, email: str, product_name: 
     except Exception as exc:  # noqa: BLE001
         logger.exception("Failed to send waitlist confirmation email")
         raise ResendServiceError("Verzenden van de bevestigingsmail is mislukt.", status_code=502) from exc
-
