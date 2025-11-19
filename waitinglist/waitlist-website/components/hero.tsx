@@ -9,6 +9,15 @@ export default function Hero() {
 
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+      {/* Logo at Top */}
+      <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-20">
+        <img
+          src="/logo.svg"
+          alt="stepps.ai"
+          className="h-8 md:h-10 lg:h-12 w-auto"
+        />
+      </div>
+
       {/* Background Elements */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
@@ -39,7 +48,7 @@ export default function Hero() {
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Stepps.ai will automatically record your workflow and generate beautiful, step-by-step guides. Stop writing docs manually.
+                stepps.ai will automatically record your workflow and generate beautiful, step-by-step guides. Stop writing docs manually.
               </p>
 
               <WaitlistForm className="mx-auto lg:mx-0" />

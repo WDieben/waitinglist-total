@@ -106,7 +106,7 @@ export default function RuixenBentoCards() {
             Documentation made simple.
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-lg">
-            Stepps.ai transforms your workflow into beautiful documentation automatically. Record once, share everywhere.
+            stepps.ai transforms your workflow into beautiful documentation automatically. Record once, share everywhere.
           </p>
         </div>
       </div>

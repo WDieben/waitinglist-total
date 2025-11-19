@@ -93,7 +93,7 @@ export default function Footer() {
                                 build confidence
                             </h2>
                             <p className="text-lg text-white/60 mb-8 max-w-xl leading-relaxed">
-                                Join the waitlist for Stepps.ai today. Be the first to generate beautiful step-by-step guides when we launch.
+                                Join the waitlist for stepps.ai today. Be the first to generate beautiful step-by-step guides when we launch.
                             </p>
 
                             <WaitlistForm variant="footer" />
@@ -105,16 +105,21 @@ export default function Footer() {
 
                         {/* Brand */}
                         <div className="space-y-4">
-                            <Link href="/" className="flex items-center gap-2">
+                            <Link href="/" className="flex items-center gap-3">
+                                <img
+                                    src="/logo-symbol.svg"
+                                    alt="stepps.ai Symbol"
+                                    className="h-8 w-auto"
+                                />
                                 <span className="font-sans text-2xl font-bold tracking-tight text-white">
-                                    Stepps.ai
+                                    stepps.ai
                                 </span>
                             </Link>
                         </div>
 
                         {/* Copyright & Legal */}
                         <div className="flex flex-col sm:flex-row items-center gap-6 text-xs text-white/40">
-                            <p>© 2025 Stepps.ai. All rights reserved.</p>
+                            <p>© 2025 stepps.ai. All rights reserved.</p>
                             <div className="flex gap-6">
                                 <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                                 <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

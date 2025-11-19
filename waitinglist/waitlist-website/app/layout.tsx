@@ -18,8 +18,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Stepps - Step-by-Step Guides Made Simple',
-  description: 'Create beautiful, step-by-step guides in seconds with Stepps.ai',
-  generator: 'Stepps.ai',
+  description: 'Create beautiful, step-by-step guides in seconds with stepps.ai',
+  generator: 'stepps.ai',
   icons: {
     icon: [
       {
@@ -45,6 +45,16 @@ export const metadata: Metadata = {
     ],
     apple: '/apple-icon.png',
     shortcut: '/favicon-16.png',
+  },
+  openGraph: {
+    images: [
+      {
+        url: '/logo.svg',
+        width: 1200,
+        height: 630,
+        alt: 'stepps.ai Logo',
+      },
+    ],
   },
 }
 
