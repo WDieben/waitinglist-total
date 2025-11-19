@@ -18,7 +18,6 @@ export default function BuiltForTeams() {
   const gridRef = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    // Animate the header section
     const headerTl = gsap.timeline({
       scrollTrigger: {
         trigger: headerRef.current,
@@ -28,7 +27,6 @@ export default function BuiltForTeams() {
       }
     })
 
-    // Badge animation
     headerTl.from(badgeRef.current, {
       opacity: 0,
       y: 20,
