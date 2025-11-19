@@ -67,24 +67,22 @@ export default function BuiltForTeams() {
       }
     })
 
-  
+
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} className="relative w-full py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 lg:px-8 bg-[#030303]">
+    <section ref={sectionRef} id="features" className="relative w-full py-8 sm:py-12 lg:py-16 xl:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl lg:max-w-7xl mx-auto">
         <div ref={headerRef} className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div ref={badgeRef}>
-            <Badge className="mb-3 sm:mb-4 lg:mb-6 bg-white/10 text-white/80 border-white/20 hover:bg-white/15">
+            <Badge className="mb-3 sm:mb-4 lg:mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
               Built for Teams
             </Badge>
           </div>
-          <h2 ref={titleRef} className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light mb-2 sm:mb-3 lg:mb-4 leading-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">
-              Made for every team
-            </span>
+          <h2 ref={titleRef} className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight text-foreground">
+            Made for every team
           </h2>
-          <p ref={descriptionRef} className="text-sm sm:text-base lg:text-lg text-white/40 max-w-xs sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
+          <p ref={descriptionRef} className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-xs sm:max-w-xl lg:max-w-2xl mx-auto leading-relaxed">
             From engineering to customer support, documentation that scales with your organization
           </p>
         </div>

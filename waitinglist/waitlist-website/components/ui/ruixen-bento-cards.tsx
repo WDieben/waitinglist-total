@@ -1,33 +1,35 @@
 "use client"
 
+import Image from "next/image"
 import React from "react"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 const cardContents = [
   {
     title: "Record Your Process",
     description:
-      "Start recording and walk through your workflow. The tool captures each step with screenshots automatically, eliminating manual documentation work.",
+      "Start recording and walk through your workflow. The tool captures each step with screenshots automatically.",
   },
   {
-    title: "Generate Step-by-Step Guides",
+    title: "Generate Guides",
     description:
-      "Convert your recording into clear, structured documentation. Each action becomes a step with descriptions and context, ready for sharing.",
+      "Convert your recording into clear, structured documentation. Each action becomes a step with descriptions.",
   },
   {
     title: "Edit and Organize",
     description:
-      "Adjust text, reorder steps, and add context with a simple editor. Perfect the documentation to match your team's needs and standards.",
+      "Adjust text, reorder steps, and add context with a simple editor. Perfect the documentation to match your needs.",
   },
   {
-    title: "Share with Your Team",
+    title: "Share with Team",
     description:
-      "Export guides or share via public link. Ideal for process documentation, training materials, and knowledge sharing across your organization.",
+      "Export guides or share via public link. Ideal for process documentation and training materials.",
   },
   {
     title: "Consistent Output",
     description:
-      "Create standardized documentation every time. Clean formatting and structure that makes processes easy to follow and maintain.",
+      "Create standardized documentation every time. Clean formatting and structure that makes processes easy to follow.",
   },
 ]
 
@@ -41,25 +43,25 @@ const PlusCard: React.FC<{
   title,
   description,
 }) => {
-  return (
-    <div
-      className={cn(
-        "relative border border-dashed border-zinc-700 rounded-lg p-4 sm:p-6 bg-zinc-950 min-h-[180px] sm:min-h-[200px]",
-        "flex flex-col justify-between",
-        className
-      )}
-    >
-      <CornerPlusIcons />
-      {/* Content */}
-      <div className="relative z-10 space-y-2">
-        <h3 className="text-lg sm:text-xl font-semibold text-white leading-tight">
-          {title}
-        </h3>
-        <p className="text-sm sm:text-base text-white/60 leading-relaxed">{description}</p>
+    return (
+      <div
+        className={cn(
+          "relative border border-dashed border-border rounded-lg p-6 hover:border-primary/50 transition-colors group min-h-[200px]",
+          "flex flex-col justify-between",
+          className
+        )}
+      >
+        <CornerPlusIcons />
+        {/* Content */}
+        <div className="relative z-10 space-y-2">
+          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+            {title}
+          </h3>
+          <p className="text-muted-foreground">{description}</p>
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
 const CornerPlusIcons = () => (
   <>
@@ -79,7 +81,7 @@ const PlusIcon = ({ className }: { className?: string }) => (
     height={24}
     strokeWidth="1"
     stroke="currentColor"
-    className={`text-white size-6 ${className}`}
+    className={`text-muted-foreground/40 size-6 ${className}`}
   >
     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
   </svg>
@@ -87,31 +89,24 @@ const PlusIcon = ({ className }: { className?: string }) => (
 
 export default function RuixenBentoCards() {
   return (
-    <section className="bg-black relative z-10">
-      <div className="mx-auto container py-12 px-4 sm:px-6 lg:px-8">
+    <section className="dark:bg-black dark:bg-transparent">
+      <div className="mx-auto container py-12 px-4">
         {/* Responsive Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 xl:grid-cols-6 auto-rows-auto gap-3 sm:gap-4 lg:gap-4 relative z-0">
-          {/* Large featured card - takes top row */}
-          <PlusCard {...cardContents[0]} className="plus-card lg:col-span-3 lg:row-span-2 xl:col-span-3" />
-
-          {/* Secondary card */}
-          <PlusCard {...cardContents[1]} className="plus-card lg:col-span-3 lg:row-span-2 xl:col-span-2 xl:row-span-2" />
-
-          {/* Third row cards */}
-          <PlusCard {...cardContents[2]} className="plus-card lg:col-span-6 lg:row-span-1 xl:col-span-4" />
-          <PlusCard {...cardContents[3]} className="plus-card lg:col-span-3 lg:row-span-1 xl:col-span-2" />
-          <PlusCard {...cardContents[4]} className="plus-card lg:col-span-3 lg:row-span-1 xl:col-span-2" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 auto-rows-auto gap-4">
+          <PlusCard {...cardContents[0]} className="lg:col-span-3 lg:row-span-2" />
+          <PlusCard {...cardContents[1]} className="lg:col-span-2 lg:row-span-2" />
+          <PlusCard {...cardContents[2]} className="lg:col-span-4 lg:row-span-1" />
+          <PlusCard {...cardContents[3]} className="lg:col-span-2 lg:row-span-1" />
+          <PlusCard {...cardContents[4]} className="lg:col-span-2 lg:row-span-1" />
         </div>
 
-        {/* Section Footer Heading - Lower z-index than header */}
-        <div className="max-w-2xl md:max-w-3xl xl:max-w-4xl ml-auto text-right px-4 sm:px-6 mt-6 lg:mt-8 xl:mt-12 relative z-5">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-light mb-4 leading-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">
-              Better documentation, faster.
-            </span>
+        {/* Section Footer Heading */}
+        <div className="max-w-2xl ml-auto text-right px-4 mt-6 lg:-mt-20">
+          <h2 className="text-4xl md:text-6xl font-bold text-black dark:text-white mb-4">
+            Documentation made simple.
           </h2>
-          <p className="text-white/40 text-base sm:text-lg lg:text-lg leading-relaxed">
-            Transform how your team creates and shares process documentation. Join the waitlist for early access.
+          <p className="text-gray-600 dark:text-gray-400 text-lg">
+            stepps.ai transforms your workflow into beautiful documentation automatically. Record once, share everywhere.
           </p>
         </div>
       </div>

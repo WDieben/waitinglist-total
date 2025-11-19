@@ -95,25 +95,23 @@ export default function HowItWorks() {
   }, { scope: sectionRef })
 
   return (
-    <section ref={sectionRef} className="relative w-full py-12 sm:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8 bg-[#030303]">
+    <section ref={sectionRef} id="how-it-works" className="relative w-full py-12 sm:py-16 lg:py-20 xl:py-24 px-4 sm:px-6 lg:px-8">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.05),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.05),transparent_50%)]" />
 
       <div className="max-w-6xl lg:max-w-7xl xl:max-w-7xl mx-auto">
         {/* Section Header - Higher z-index to stay above cards */}
         <div ref={headerRef} className="text-center mb-8 sm:mb-12 lg:mb-16 relative z-20">
           <div ref={badgeRef}>
-            <Badge className="mb-3 sm:mb-4 lg:mb-6 bg-white/10 text-white/80 border-white/20 hover:bg-white/15">
+            <Badge className="mb-3 sm:mb-4 lg:mb-6 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
               How it works
             </Badge>
           </div>
-          <h2 ref={titleRef} className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-light mb-2 sm:mb-3 lg:mb-4 leading-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/70">
-              Transform your workflow
-            </span>
+          <h2 ref={titleRef} className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 sm:mb-3 lg:mb-4 leading-tight text-foreground">
+            Transform your workflow
           </h2>
-          <p ref={descriptionRef} className="text-sm sm:text-base lg:text-lg text-white/40 max-w-xs sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
-            From recording to sharing, our AI-powered platform makes documentation effortless and collaborative
+          <p ref={descriptionRef} className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-xs sm:max-w-2xl lg:max-w-3xl mx-auto leading-relaxed">
+            From recording to sharing, our intelligent platform makes documentation effortless and collaborative
           </p>
         </div>
 
