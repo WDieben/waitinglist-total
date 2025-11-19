@@ -9,31 +9,26 @@ const cardContents = [
     title: "Record Your Process",
     description:
       "Start recording and walk through your workflow. The tool captures each step with screenshots automatically.",
-    tags: ["Capture", "Automation"]
   },
   {
     title: "Generate Guides",
     description:
       "Convert your recording into clear, structured documentation. Each action becomes a step with descriptions.",
-    tags: ["AI", "Generation"]
   },
   {
     title: "Edit and Organize",
     description:
       "Adjust text, reorder steps, and add context with a simple editor. Perfect the documentation to match your needs.",
-    tags: ["Editor", "Customization"]
   },
   {
     title: "Share with Team",
     description:
       "Export guides or share via public link. Ideal for process documentation and training materials.",
-    tags: ["Collaboration", "Sharing"]
   },
   {
     title: "Consistent Output",
     description:
       "Create standardized documentation every time. Clean formatting and structure that makes processes easy to follow.",
-    tags: ["Standardization", "Quality"]
   },
 ]
 
@@ -58,12 +53,10 @@ const PlusCard: React.FC<{
   className?: string
   title: string
   description: string
-  tags: string[]
 }> = ({
   className = "",
   title,
   description,
-  tags,
 }) => {
     return (
       <div
@@ -91,14 +84,6 @@ const PlusCard: React.FC<{
             </h3>
             <p className="text-muted-foreground leading-relaxed">{description}</p>
           </div>
-
-          <div className="flex flex-wrap gap-2 mt-auto pt-4">
-            {tags.map((tag) => (
-              <span key={tag} className="text-xs font-medium px-2 py-1 rounded-md bg-muted text-muted-foreground border border-border">
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     )
@@ -120,16 +105,6 @@ export default function RuixenBentoCards() {
           <PlusCard {...cardContents[2]} className="plus-card lg:col-span-2 lg:row-span-1" />
           <PlusCard {...cardContents[3]} className="plus-card lg:col-span-2 lg:row-span-1" />
           <PlusCard {...cardContents[4]} className="plus-card lg:col-span-2 lg:row-span-1" />
-        </div>
-
-        {/* Section Footer Heading */}
-        <div className="max-w-2xl md:max-w-3xl xl:max-w-4xl ml-auto text-right px-4 sm:px-6 mt-12 relative z-5">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 leading-tight text-foreground">
-            Better documentation, faster.
-          </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Transform how your team creates and shares process documentation. Join the waitlist for early access.
-          </p>
         </div>
       </div>
     </section>

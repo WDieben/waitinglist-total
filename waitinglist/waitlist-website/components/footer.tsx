@@ -12,7 +12,12 @@ export default function Footer() {
     return (
         <footer className="relative w-full">
             {/* CTA Section - Dark Background */}
-            <div className="bg-brand-dark text-white py-20 px-4 sm:px-6 lg:px-8 rounded-t-[2.5rem] mt-20">
+            <div className="bg-brand-dark text-white py-20 px-4 sm:px-6 lg:px-8 rounded-t-[2.5rem] mt-20 relative overflow-hidden">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute inset-0 bg-[linear-gradient(30deg,#ffffff_1px,transparent_1px),linear-gradient(150deg,#ffffff_1px,transparent_1px)] [background-size:20px_20px]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent" />
+                </div>
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-24">
 
